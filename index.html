@@ -15,7 +15,7 @@ tar -xzvf ytr.tar.gz
         navigator.clipboard
           .writeText(fullCommand.trim())
           .then(() => {
-            showToast("Ready! Paste in terminal to launch!");
+            showToast("copied!");
           })
           .catch((err) => {
             console.error("Failed to copy command:", err);
