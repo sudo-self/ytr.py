@@ -62,9 +62,14 @@
     <link rel="icon" sizes="192x192" href="favicon-192.png" />
     <script>
       function copyCommand() {
-        const command = document.getElementById("command").textContent;
+        const fullCommand = `
+git clone https://github.com/sudo-self/ytr.py
+cd ytr.py
+tar -xzvf ytr.tar.gz
+./YTR
+        `;
         navigator.clipboard
-          .writeText(command)
+          .writeText(fullCommand.trim())
           .then(() => {
             showToast("Ready! Paste in terminal to launch!");
           })
@@ -107,6 +112,12 @@
         max-width: 60%;
         margin: 0 auto;
         word-wrap: break-word;
+      }
+      code {
+        background: #1e1e2f;
+        padding: 5px 10px;
+        border-radius: 3px;
+        color: #4caf50;
       }
       button {
         margin-top: 10px;
@@ -175,23 +186,23 @@
     >
     <h1>YT Ringtones</h1>
     <p>macOS & Linux</p>
-    <pre id="command">
-git clone https://github.com/sudo-self/ytr.py
-      cd ytr.py
-      tar -xzvf ytr.tar.gz
-      ./YTR</pre
-    >
+    <pre>
+<code>https://github.com/sudo-self/ytr.py</code>
+    </pre>
     <button onclick="copyCommand()">install</button>
 
+ 
     <video id="thankYouVideo" src="1.mp4" autoplay loop muted></video>
 
+ 
     <footer>
       <p>
         For more info, visit
-        <a href="https://github.com/sudo-self/ytr.py" target="_blank">ytr.py</a>
+        <a href="https://sudo-self.github.io/ytr.py/" target="_blank">ytr.py</a>
       </p>
     </footer>
   </body>
 </html>
+
 
 
