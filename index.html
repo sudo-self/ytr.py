@@ -45,23 +45,23 @@ tar -xzvf ytr.tar.gz
         color: #f0f0f0;
         padding: 20px;
         text-align: center;
-        position: relative;
       }
       pre {
         background: #282c34;
         padding: 10px;
         border-radius: 5px;
-        overflow-x: auto;
-        white-space: pre-wrap;
-        max-width: 60%;
+        overflow-x: auto; 
+        white-space: nowrap; 
+        max-width: 100%; 
         margin: 0 auto;
-        word-wrap: break-word;
+        word-wrap: normal;
       }
       code {
         background: #1e1e2f;
         padding: 5px 10px;
         border-radius: 3px;
         color: #4caf50;
+        font-size: 14px;
       }
       button {
         margin-top: 10px;
@@ -114,9 +114,19 @@ tar -xzvf ytr.tar.gz
       footer a:hover {
         text-decoration: underline;
       }
-    </style>
 
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+      /* Responsive Design for Mobile */
+      @media (max-width: 600px) {
+        pre {
+          max-width: 95%; 
+          font-size: 14px;
+        }
+        button {
+          width: 90%;
+          font-size: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
     <a
@@ -135,10 +145,10 @@ tar -xzvf ytr.tar.gz
     </pre>
     <button onclick="copyCommand()">install</button>
 
- 
+  
     <video id="thankYouVideo" src="1.mp4" autoplay loop muted></video>
 
- 
+
     <footer>
       <p>
         For more info, visit
