@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macOS</title>
+    <script>
+      function copyCommand() {
+        const command = document.getElementById("command").textContent;
+        navigator.clipboard
+          .writeText(command)
+          .then(() => {
+            showToast("Ready! Paste in terminal to launch!");
+          })
+          .catch((err) => {
+            console.error("Failed to copy command:", err);
+            showToast("Failed to copy command", true);
+          });
+      }
+
+      function showToast(message, isError = false) {
+        const toast = document.createElement("div");
+        toast.classList.add("toast");
+        if (isError) {
+          toast.classList.add("error");
+        }
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.classList.add("fade");
+          setTimeout(() => toast.remove(), 500);
+        }, 3000);
+      }
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1e1e2f;
+        color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+      }
+      pre {
+        background: #282c34;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        max-width: 60%;
+        margin: 0 auto;
+        word-wrap: break-word;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #005f50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #005fa3;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+      .toast.error {
+        background-color: #dc3545;
+      }
+      .toast.fade {
+        opacity: 0;
+      }
+      #thankYouImage {
+        margin-top: 10px;
+        max-width: 40%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+  <body>
+    <a
+      class="github-button"
+      href="https://github.com/sudo-self/ytr.py/fork"
+      data-color-scheme="no-preference: light; light: light; dark: light;"
+      data-icon="octicon-repo-forked"
+      data-size="large"
+      aria-label="Fork sudo-self/ytr.py on GitHub"
+      >Fork</a
+    >
+    <h1>YT Ringtones</h1>
+    <p>macOS & Linux</p>
+    <pre id="command">
+git clone https://github.com/sudo-self/ytr.py
+      cd ytr.py
+      tar -xzvf ytr.tar.gz
+      ./YTR</pre
+    >
+    <button onclick="copyCommand()">install</button>
+    <img id="thankYouImage" src="./yt.png" alt="Thank You!" />
+  </body>
+</html>
